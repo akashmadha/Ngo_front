@@ -46,7 +46,6 @@ export default defineConfig({
             '@fullcalendar/interaction',
           ],
           dnd: ['react-dnd', 'react-dnd-html5-backend'],
-          swiper: ['swiper'],
         }
       }
     }
