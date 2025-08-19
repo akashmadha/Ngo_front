@@ -1,6 +1,13 @@
-// NOTE: Make sure to install @heroicons/react: npm install @heroicons/react
+// NOTE: Using react-icons instead of @heroicons/react for better compatibility
 import React, { useState, useEffect } from "react";
-import { CheckCircleIcon, ExclamationTriangleIcon, TrashIcon, PencilIcon, PlusIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
+import { 
+  FaCheckCircle, 
+  FaExclamationTriangle, 
+  FaTrash, 
+  FaEdit, 
+  FaPlus, 
+  FaChevronDown 
+} from 'react-icons/fa';
 
 const API_BASE = `${import.meta.env.VITE_API_BASE_URL}/api/admin`;
 const USER_ID = localStorage.getItem("userId") || "1";
@@ -13,7 +20,7 @@ const Toast: React.FC<ToastProps> = ({ type, message, onClose }) => (
     ${type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}
     role="alert"
   >
-    {type === 'success' ? <CheckCircleIcon className="w-5 h-5" /> : <ExclamationTriangleIcon className="w-5 h-5" />}
+    {type === 'success' ? <FaCheckCircle className="w-5 h-5" /> : <FaExclamationTriangle className="w-5 h-5" />}
     <span className="font-medium">{message}</span>
     <button onClick={onClose} className="ml-2 text-lg font-bold">×</button>
   </div>
@@ -244,7 +251,7 @@ const TalukaMaster: React.FC = () => {
             className="bg-brand-500 text-white px-6 py-2 rounded-lg font-semibold shadow-theme-xs hover:bg-brand-600 focus:ring-2 focus:ring-brand-300 transition"
             disabled={loadingTalukas}
           >
-            {editIndex === null ? <><PlusIcon className="w-5 h-5 inline-block mr-1" /> Add Taluka</> : <><PencilIcon className="w-5 h-5 inline-block mr-1" /> Update</>}
+            {editIndex === null ? <><FaPlus className="w-5 h-5 inline-block mr-1" /> Add Taluka</> : <><FaEdit className="w-5 h-5 inline-block mr-1" /> Update</>}
           </button>
           {editIndex !== null && (
             <button
@@ -298,14 +305,14 @@ const TalukaMaster: React.FC = () => {
                             onClick={() => handleEdit((currentPage - 1) * pageSize + idx)}
                             title="Edit"
                           >
-                            <PencilIcon className="w-5 h-5 inline-block" />
+                            <FaEdit className="w-5 h-5 inline-block" />
                           </button>
                           <button
                             className="text-red-600 hover:text-red-900"
                             onClick={() => handleDelete((currentPage - 1) * pageSize + idx)}
                             title="Delete"
                           >
-                            <TrashIcon className="w-5 h-5 inline-block" />
+                            <FaTrash className="w-5 h-5 inline-block" />
                           </button>
                         </div>
                       </td>

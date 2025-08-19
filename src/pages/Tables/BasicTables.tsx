@@ -1,28 +1,20 @@
 import PageMeta from "../../components/common/PageMeta";
-import { 
-  UserGroupIcon, 
-  BuildingOfficeIcon,
-  DocumentCheckIcon,
-  MapPinIcon,
-  PhoneIcon,
-  UserIcon,
-  MagnifyingGlassIcon,
-  Bars3Icon,
-  XMarkIcon,
-  HomeIcon,
-  CheckCircleIcon,
-  ExclamationTriangleIcon,
-  InformationCircleIcon,
-  PencilIcon,
-  TrashIcon,
-  ChevronRightIcon,
-  FunnelIcon,
-  ChevronLeftIcon,
-  EyeIcon,
-  PlusIcon,
-  ArrowUpIcon,
-  ArrowDownIcon
-} from '@heroicons/react/24/outline';
+import {
+  FaInfoCircle,
+  FaEdit,
+  FaTrash,
+  FaChevronRight,
+  FaFilter,
+  FaChevronLeft,
+  FaEye,
+  FaPlus,
+  FaArrowUp,
+  FaArrowDown,
+  FaUsers,
+  FaSearch,
+  FaCheckCircle,
+  FaExclamationTriangle
+} from 'react-icons/fa';
 import React, { useState, useEffect } from "react";
 
 
@@ -378,9 +370,9 @@ export default function BasicTables() {
           'bg-blue-500 text-white'
         }`}>
           <div className="flex items-center space-x-2">
-            {notification.type === 'success' && <CheckCircleIcon className="w-5 h-5" />}
-            {notification.type === 'error' && <ExclamationTriangleIcon className="w-5 h-5" />}
-            {notification.type === 'info' && <InformationCircleIcon className="w-5 h-5" />}
+            {notification.type === 'success' && <FaCheckCircle className="w-5 h-5" />}
+            {notification.type === 'error' && <FaExclamationTriangle className="w-5 h-5" />}
+                         {notification.type === 'info' && <FaInfoCircle className="w-5 h-5" />}
             <span>{notification.message}</span>
           </div>
         </div>
@@ -392,7 +384,7 @@ export default function BasicTables() {
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-2">
               <div className="p-2 bg-blue-100 rounded-lg">
-                <UserGroupIcon className="w-8 h-8 text-blue-600" />
+                <FaUsers className="w-8 h-8 text-blue-600" />
               </div>
               <div>
                 <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
@@ -412,7 +404,7 @@ export default function BasicTables() {
                     <p className="text-sm text-gray-600 dark:text-gray-400">Total Members</p>
                     <p className="text-2xl font-bold text-gray-900 dark:text-white">{members.length}</p>
                   </div>
-                  <UserGroupIcon className="w-8 h-8 text-blue-500" />
+                  <FaUsers className="w-8 h-8 text-blue-500" />
                 </div>
               </div>
               <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
@@ -464,7 +456,7 @@ export default function BasicTables() {
                 {/* Search and Filters */}
               <div className="flex flex-col sm:flex-row gap-4 flex-1">
                 <div className="relative flex-1 max-w-md">
-                    <MagnifyingGlassIcon className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                    <FaSearch className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                   <input
                     type="text"
                       placeholder="Search members..."
@@ -496,7 +488,7 @@ export default function BasicTables() {
                       }`}
                       title="Advanced Filters"
                     >
-                      <FunnelIcon className="w-5 h-5" />
+                      <FaFilter className="w-5 h-5" />
                     </button>
                 </div>
               </div>
@@ -638,7 +630,7 @@ export default function BasicTables() {
                           <div className="flex items-center space-x-1">
                             <span>ID</span>
                             {sortConfig.key === 'id' && (
-                              sortConfig.direction === 'asc' ? <ArrowUpIcon className="w-4 h-4" /> : <ArrowDownIcon className="w-4 h-4" />
+                              sortConfig.direction === 'asc' ? <FaArrowUp className="w-4 h-4" /> : <FaArrowDown className="w-4 h-4" />
                             )}
                           </div>
                         </th>
@@ -649,7 +641,7 @@ export default function BasicTables() {
                           <div className="flex items-center space-x-1">
                             <span>Organization</span>
                             {sortConfig.key === 'organizationName' && (
-                              sortConfig.direction === 'asc' ? <ArrowUpIcon className="w-4 h-4" /> : <ArrowDownIcon className="w-4 h-4" />
+                              sortConfig.direction === 'asc' ? <FaArrowUp className="w-4 h-4" /> : <FaArrowDown className="w-4 h-4" />
                             )}
                           </div>
                         </th>
@@ -660,7 +652,7 @@ export default function BasicTables() {
                           <div className="flex items-center space-x-1">
                             <span>SPOC</span>
                             {sortConfig.key === 'spocName' && (
-                              sortConfig.direction === 'asc' ? <ArrowUpIcon className="w-4 h-4" /> : <ArrowDownIcon className="w-4 h-4" />
+                              sortConfig.direction === 'asc' ? <FaArrowUp className="w-4 h-4" /> : <FaArrowDown className="w-4 h-4" />
                             )}
                           </div>
                         </th>
@@ -671,7 +663,7 @@ export default function BasicTables() {
                           <div className="flex items-center space-x-1">
                             <span>Email</span>
                             {sortConfig.key === 'email' && (
-                              sortConfig.direction === 'asc' ? <ArrowUpIcon className="w-4 h-4" /> : <ArrowDownIcon className="w-4 h-4" />
+                              sortConfig.direction === 'asc' ? <FaArrowUp className="w-4 h-4" /> : <FaArrowDown className="w-4 h-4" />
                             )}
                           </div>
                         </th>
@@ -682,7 +674,7 @@ export default function BasicTables() {
                           <div className="flex items-center space-x-1">
                             <span>Status</span>
                             {sortConfig.key === 'status' && (
-                              sortConfig.direction === 'asc' ? <ArrowUpIcon className="w-4 h-4" /> : <ArrowDownIcon className="w-4 h-4" />
+                              sortConfig.direction === 'asc' ? <FaArrowUp className="w-4 h-4" /> : <FaArrowDown className="w-4 h-4" />
                             )}
                           </div>
                         </th>
@@ -735,7 +727,7 @@ export default function BasicTables() {
                                 className="inline-flex items-center justify-center w-6 h-6 text-blue-600 bg-blue-100 rounded-full hover:bg-blue-200 dark:bg-blue-900 dark:text-blue-300 dark:hover:bg-blue-800 transition-colors duration-200 group"
                                 title="View Details"
                               >
-                                <EyeIcon className="w-3 h-3" />
+                                <FaEye className="w-3 h-3" />
                                 <span className="absolute opacity-0 group-hover:opacity-100 bg-gray-800 text-white text-xs rounded py-1 px-2 -mt-8 ml-2 transition-opacity duration-200 whitespace-nowrap">
                                   View
                                 </span>
@@ -745,7 +737,7 @@ export default function BasicTables() {
                                 className="inline-flex items-center justify-center w-6 h-6 text-green-600 bg-green-100 rounded-full hover:bg-green-200 dark:bg-green-900 dark:text-green-300 dark:hover:bg-green-800 transition-colors duration-200 group"
                                 title="Edit Member"
                               >
-                                <PencilIcon className="w-3 h-3" />
+                                <FaEdit className="w-3 h-3" />
                                 <span className="absolute opacity-0 group-hover:opacity-100 bg-gray-800 text-white text-xs rounded py-1 px-2 -mt-8 ml-2 transition-opacity duration-200 whitespace-nowrap">
                                   Edit
                                 </span>

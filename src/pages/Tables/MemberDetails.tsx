@@ -1,30 +1,30 @@
 import PageMeta from "../../components/common/PageMeta";
 import { 
-  UserGroupIcon, 
-  BuildingOfficeIcon,
-  DocumentCheckIcon,
-  MapPinIcon,
-  PhoneIcon,
-  UserIcon,
-  MagnifyingGlassIcon,
-  Bars3Icon,
-  XMarkIcon,
-  HomeIcon,
-  CheckCircleIcon,
-  ExclamationTriangleIcon,
-  InformationCircleIcon,
-  PencilIcon,
-  TrashIcon,
-  ChevronRightIcon,
-  ChevronLeftIcon,
-  EyeIcon,
-  PlusIcon,
-  ArrowUpIcon,
-  ArrowDownIcon,
-  CalendarIcon,
-  EnvelopeIcon,
-  GlobeAltIcon
-} from '@heroicons/react/24/outline';
+  FaUsers, 
+  FaBuilding,
+  FaCheckSquare,
+  FaMapMarkerAlt,
+  FaPhone,
+  FaUser,
+  FaSearch,
+  FaBars,
+  FaTimes,
+  FaHome,
+  FaCheckCircle,
+  FaExclamationTriangle,
+  FaInfoCircle,
+  FaEdit,
+  FaTrash,
+  FaChevronRight,
+  FaChevronLeft,
+  FaEye,
+  FaPlus,
+  FaArrowUp,
+  FaArrowDown,
+  FaCalendarAlt,
+  FaEnvelope,
+  FaGlobe
+} from 'react-icons/fa';
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
@@ -66,37 +66,37 @@ const tabItems: TabItem[] = [
   {
     id: 'overview',
     name: 'Overview',
-    icon: <UserIcon className="w-5 h-5" />,
+    icon: <FaUser className="w-5 h-5" />,
     description: 'Basic member information and summary'
   },
   {
     id: 'organization',
     name: 'Organization Details',
-    icon: <BuildingOfficeIcon className="w-5 h-5" />,
+    icon: <FaBuilding className="w-5 h-5" />,
     description: 'Organization registration and business information'
   },
   {
     id: 'certification',
     name: 'Certification Details',
-    icon: <DocumentCheckIcon className="w-5 h-5" />,
+    icon: <FaCheckSquare className="w-5 h-5" />,
     description: 'Certificates, licenses and compliance documents'
   },
   {
     id: 'address',
     name: 'Address Information',
-    icon: <MapPinIcon className="w-5 h-5" />,
+    icon: <FaMapMarkerAlt className="w-5 h-5" />,
     description: 'Registered office and communication addresses'
   },
   {
     id: 'communication',
     name: 'Communication Details',
-    icon: <PhoneIcon className="w-5 h-5" />,
+    icon: <FaPhone className="w-5 h-5" />,
     description: 'Contact information and communication preferences'
   },
   {
     id: 'contact-person',
     name: 'Key Contact Person',
-    icon: <UserGroupIcon className="w-5 h-5" />,
+    icon: <FaUsers className="w-5 h-5" />,
     description: 'Primary contact person and representative details'
   }
 ];
@@ -246,9 +246,9 @@ export default function MemberDetails() {
           'bg-blue-500 text-white'
         }`}>
           <div className="flex items-center space-x-2">
-            {notification.type === 'success' && <CheckCircleIcon className="w-5 h-5" />}
-            {notification.type === 'error' && <ExclamationTriangleIcon className="w-5 h-5" />}
-            {notification.type === 'info' && <InformationCircleIcon className="w-5 h-5" />}
+            {notification.type === 'success' && <FaCheckCircle className="w-5 h-5" />}
+            {notification.type === 'error' && <FaExclamationTriangle className="w-5 h-5" />}
+            {notification.type === 'info' && <FaInfoCircle className="w-5 h-5" />}
             <span>{notification.message}</span>
           </div>
         </div>
@@ -263,7 +263,7 @@ export default function MemberDetails() {
                 onClick={handleBack}
                 className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
               >
-                <ChevronLeftIcon className="w-6 h-6" />
+                <FaChevronLeft className="w-6 h-6" />
               </button>
               <div>
                 <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
@@ -279,7 +279,7 @@ export default function MemberDetails() {
                   onClick={() => setIsEditing(!isEditing)}
                   className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                 >
-                  <PencilIcon className="w-4 h-4 mr-2" />
+                  <FaEdit className="w-4 h-4 mr-2" />
                   {isEditing ? 'Cancel Edit' : 'Edit Member'}
                 </button>
               </div>

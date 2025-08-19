@@ -1,30 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { 
-  ArrowLeftIcon,
-  DocumentIcon,
-  PhoneIcon,
-  EnvelopeIcon,
-  MapPinIcon,
-  UserIcon,
-  BuildingOfficeIcon,
-  CalendarIcon,
-  CheckCircleIcon,
-  ExclamationTriangleIcon,
-  InformationCircleIcon,
-  ArrowDownTrayIcon,
-  ShareIcon,
-  FolderIcon,
-  FlagIcon,
-  StarIcon,
-  EyeIcon,
-  ChevronLeftIcon,
-  PencilIcon,
-  UserGroupIcon,
-  DocumentCheckIcon,
-  GlobeAltIcon,
-  ClockIcon
-} from '@heroicons/react/24/outline';
+  FaArrowLeft,
+  FaFileAlt,
+  FaPhone,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaUser,
+  FaBuilding,
+  FaCalendarAlt,
+  FaCheckCircle,
+  FaExclamationTriangle,
+  FaInfoCircle,
+  FaDownload,
+  FaShare,
+  FaFolder,
+  FaFlag,
+  FaStar,
+  FaEye,
+  FaChevronLeft,
+  FaEdit,
+  FaUsers,
+  FaCheckSquare,
+  FaGlobe,
+  FaClock
+} from 'react-icons/fa';
 import PageMeta from "../../components/common/PageMeta";
 
 interface Member {
@@ -66,37 +66,37 @@ const tabItems: TabItem[] = [
   {
     id: 'overview',
     name: 'Overview',
-    icon: <UserIcon className="w-5 h-5" />,
+    icon: <FaUser className="w-5 h-5" />,
     description: 'Basic member information and summary'
   },
   {
     id: 'organization',
     name: 'Organization Details',
-    icon: <BuildingOfficeIcon className="w-5 h-5" />,
+    icon: <FaBuilding className="w-5 h-5" />,
     description: 'Organization registration and business information'
   },
   {
     id: 'certification',
     name: 'Certification Details',
-    icon: <DocumentCheckIcon className="w-5 h-5" />,
+    icon: <FaCheckSquare className="w-5 h-5" />,
     description: 'Certificates, licenses and compliance documents'
   },
   {
     id: 'address',
     name: 'Address Information',
-    icon: <MapPinIcon className="w-5 h-5" />,
+    icon: <FaMapMarkerAlt className="w-5 h-5" />,
     description: 'Registered office and communication addresses'
   },
   {
     id: 'communication',
     name: 'Communication Details',
-    icon: <PhoneIcon className="w-5 h-5" />,
+    icon: <FaPhone className="w-5 h-5" />,
     description: 'Contact information and communication preferences'
   },
   {
     id: 'contact-person',
     name: 'Key Contact Person',
-    icon: <UserGroupIcon className="w-5 h-5" />,
+    icon: <FaUsers className="w-5 h-5" />,
     description: 'Primary contact person and representative details'
   }
 ];
@@ -322,7 +322,7 @@ export default function MemberDetailsView() {
     return (
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
         <div className="text-center">
-          <ExclamationTriangleIcon className="w-12 h-12 text-red-500 mx-auto mb-4" />
+          <FaExclamationTriangle className="w-12 h-12 text-red-500 mx-auto mb-4" />
           <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Error</h2>
           <p className="text-gray-600 dark:text-gray-400 mb-4">{error || 'Member not found'}</p>
           <button
@@ -351,9 +351,9 @@ export default function MemberDetailsView() {
           'bg-blue-500 text-white'
         }`}>
           <div className="flex items-center space-x-2">
-            {notification.type === 'success' && <CheckCircleIcon className="w-5 h-5" />}
-            {notification.type === 'error' && <ExclamationTriangleIcon className="w-5 h-5" />}
-            {notification.type === 'info' && <InformationCircleIcon className="w-5 h-5" />}
+            {notification.type === 'success' && <FaCheckCircle className="w-5 h-5" />}
+            {notification.type === 'error' && <FaExclamationTriangle className="w-5 h-5" />}
+            {notification.type === 'info' && <FaInfoCircle className="w-5 h-5" />}
             <span>{notification.message}</span>
           </div>
         </div>
@@ -368,7 +368,7 @@ export default function MemberDetailsView() {
                 onClick={() => navigate('/basic-tables')}
                 className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
               >
-                <ChevronLeftIcon className="w-6 h-6" />
+                <FaChevronLeft className="w-6 h-6" />
               </button>
               <div>
                 <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
@@ -378,7 +378,7 @@ export default function MemberDetailsView() {
                   Member ID: #{member?.id || 'N/A'} - {orgDetails?.organizationName || 'N/A'}
                 </p>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                  <CalendarIcon className="w-4 h-4 inline mr-1" />
+                  <FaCalendarAlt className="w-4 h-4 inline mr-1" />
                   Signed up: {formatDate(orgDetails?.createdAt || '')}
                 </p>
               </div>
@@ -388,7 +388,7 @@ export default function MemberDetailsView() {
                   onClick={() => navigate(`/member-details/${member?.id || ''}?mode=edit`)}
                   className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                 >
-                  <PencilIcon className="w-4 h-4 mr-2" />
+                  <FaEdit className="w-4 h-4 mr-2" />
                   Edit Member
                 </button>
               </div>
@@ -423,7 +423,7 @@ export default function MemberDetailsView() {
                   {/* Signup Details Section */}
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
-                      <CalendarIcon className="w-5 h-5 mr-2 text-blue-600" />
+                      <FaCalendarAlt className="w-5 h-5 mr-2 text-blue-600" />
                       Signup Details
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -453,7 +453,7 @@ export default function MemberDetailsView() {
                         <div className="bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 p-6 rounded-lg border border-red-200 dark:border-red-800">
                           <div className="flex items-center justify-between mb-4">
                             <h4 className="font-semibold text-red-900 dark:text-red-300 flex items-center">
-                              <ClockIcon className="w-5 h-5 mr-2" />
+                              <FaClock className="w-5 h-5 mr-2" />
                               Membership Status
                             </h4>
                             <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${getMembershipStatus().color}`}>
@@ -529,7 +529,7 @@ export default function MemberDetailsView() {
                   {/* Organization Overview */}
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
-                      <BuildingOfficeIcon className="w-5 h-5 mr-2 text-green-600" />
+                      <FaBuilding className="w-5 h-5 mr-2 text-green-600" />
                       Organization Overview
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -568,7 +568,7 @@ export default function MemberDetailsView() {
                   {/* Additional Details */}
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
-                      <DocumentIcon className="w-5 h-5 mr-2 text-purple-600" />
+                      <FaFileAlt className="w-5 h-5 mr-2 text-purple-600" />
                       Additional Details
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -747,7 +747,7 @@ export default function MemberDetailsView() {
                       <div className="space-y-2">
                         {commDetails.phones.map((phone: any, index: number) => (
                           <div key={index} className="flex items-center space-x-2 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                            <PhoneIcon className="w-4 h-4 text-gray-500" />
+                            <FaPhone className="w-4 h-4 text-gray-500" />
                             <span className="text-gray-900 dark:text-white">{phone.number || phone.phone_number}</span>
                             <span className="text-sm text-gray-500 dark:text-gray-400">({phone.type})</span>
                           </div>
@@ -763,7 +763,7 @@ export default function MemberDetailsView() {
                       <div className="space-y-2">
                         {commDetails.emails.map((email: any, index: number) => (
                           <div key={index} className="flex items-center space-x-2 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                            <EnvelopeIcon className="w-4 h-4 text-gray-500" />
+                            <FaEnvelope className="w-4 h-4 text-gray-500" />
                             <span className="text-gray-900 dark:text-white">{email.email || email.email_address}</span>
                             <span className="text-sm text-gray-500 dark:text-gray-400">({email.type})</span>
                           </div>
@@ -779,7 +779,7 @@ export default function MemberDetailsView() {
                       <div className="space-y-2">
                         {commDetails.socialLinks.map((social: any, index: number) => (
                           <div key={index} className="flex items-center space-x-2 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                            <GlobeAltIcon className="w-4 h-4 text-gray-500" />
+                            <FaGlobe className="w-4 h-4 text-gray-500" />
                             <span className="text-gray-900 dark:text-white font-medium">{social.platform}:</span>
                             <span className="text-gray-900 dark:text-white">{social.url || social.link}</span>
                           </div>
@@ -792,7 +792,7 @@ export default function MemberDetailsView() {
                    (!commDetails.emails || commDetails.emails.length === 0) && 
                    (!commDetails.socialLinks || commDetails.socialLinks.length === 0) && (
                     <div className="text-center py-8">
-                      <PhoneIcon className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+                      <FaPhone className="w-12 h-12 text-gray-400 mx-auto mb-4" />
                       <p className="text-gray-500 dark:text-gray-400">No communication details available</p>
                     </div>
                   )}

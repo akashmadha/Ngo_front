@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { 
-  ArrowLeftIcon,
-  PencilIcon,
-  TrashIcon,
-  CheckCircleIcon,
-  ExclamationTriangleIcon,
-  InformationCircleIcon,
-  XMarkIcon,
-  UserIcon,
-  BuildingOfficeIcon,
-  CalendarIcon,
-  EnvelopeIcon,
-  PhoneIcon,
-  MapPinIcon,
-  DocumentTextIcon,
-  AcademicCapIcon,
-  GlobeAltIcon,
-  ChatBubbleLeftRightIcon
-} from '@heroicons/react/24/outline';
+  FaArrowLeft,
+  FaEdit,
+  FaTrash,
+  FaCheckCircle,
+  FaExclamationTriangle,
+  FaInfoCircle,
+  FaTimes,
+  FaUser,
+  FaBuilding,
+  FaCalendarAlt,
+  FaEnvelope,
+  FaPhone,
+  FaMapMarkerAlt,
+  FaFileAlt,
+  FaGraduationCap,
+  FaGlobe,
+  FaComments
+} from 'react-icons/fa';
 import PageMeta from "../../components/common/PageMeta";
 
 interface Member {
@@ -316,7 +316,7 @@ export default function MemberDetailsEdit() {
     return (
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
         <div className="text-center">
-          <ExclamationTriangleIcon className="w-12 h-12 text-red-500 mx-auto mb-4" />
+          <FaExclamationTriangle className="w-12 h-12 text-red-500 mx-auto mb-4" />
           <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Error</h2>
           <p className="text-gray-600 dark:text-gray-400 mb-4">{error || 'Member not found'}</p>
           <button
@@ -345,9 +345,9 @@ export default function MemberDetailsEdit() {
           'bg-blue-500 text-white'
         }`}>
           <div className="flex items-center space-x-2">
-            {notification.type === 'success' && <CheckCircleIcon className="w-5 h-5" />}
-            {notification.type === 'error' && <ExclamationTriangleIcon className="w-5 h-5" />}
-            {notification.type === 'info' && <InformationCircleIcon className="w-5 h-5" />}
+            {notification.type === 'success' && <FaCheckCircle className="w-5 h-5" />}
+            {notification.type === 'error' && <FaExclamationTriangle className="w-5 h-5" />}
+            {notification.type === 'info' && <FaInfoCircle className="w-5 h-5" />}
             <span>{notification.message}</span>
           </div>
         </div>
@@ -363,7 +363,7 @@ export default function MemberDetailsEdit() {
                   onClick={() => navigate('/basic-tables')}
                   className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
                 >
-                  <ArrowLeftIcon className="w-6 h-6" />
+                  <FaArrowLeft className="w-6 h-6" />
                 </button>
                 <div>
                   <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -381,7 +381,7 @@ export default function MemberDetailsEdit() {
                   onClick={() => setShowEditModal(true)}
                   className="flex items-center space-x-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
                 >
-                  <PencilIcon className="w-4 h-4" />
+                  <FaEdit className="w-4 h-4" />
                   <span>Edit Details</span>
                 </button>
                 
@@ -389,7 +389,7 @@ export default function MemberDetailsEdit() {
                   onClick={() => navigate(`/member-details/${member.id}?mode=view`)}
                   className="flex items-center space-x-2 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
                 >
-                  <XMarkIcon className="w-4 h-4" />
+                  <FaTimes className="w-4 h-4" />
                   <span>Cancel</span>
                 </button>
                 
@@ -408,7 +408,7 @@ export default function MemberDetailsEdit() {
                   onClick={() => setShowDeleteConfirm(true)}
                   className="flex items-center space-x-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
                 >
-                  <TrashIcon className="w-4 h-4" />
+                  <FaTrash className="w-4 h-4" />
                   <span>Delete</span>
                 </button>
               </div>
@@ -423,7 +423,7 @@ export default function MemberDetailsEdit() {
             {/* members_registration_details */}
             {renderFormSection(
               "members_registration_details",
-              <BuildingOfficeIcon className="w-6 h-6 text-blue-600" />,
+              <FaBuilding className="w-6 h-6 text-blue-600" />,
               member['User Registration Details'],
               [
                 { key: 'organization_name', label: 'Organization Name' },
@@ -454,7 +454,7 @@ export default function MemberDetailsEdit() {
             {/* Registered Office Address */}
             {renderFormSection(
               "Registered Office Address",
-              <MapPinIcon className="w-6 h-6 text-green-600" />,
+              <FaMapMarkerAlt className="w-6 h-6 text-green-600" />,
               member['Registered Office Address'],
               [
                 { key: 'address1', label: 'Address Line 1' },
@@ -472,7 +472,7 @@ export default function MemberDetailsEdit() {
               <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
                 <div className="p-6">
                   <div className="flex items-center space-x-3 mb-6">
-                    <GlobeAltIcon className="w-6 h-6 text-indigo-600" />
+                    <FaGlobe className="w-6 h-6 text-indigo-600" />
                     <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
                       Communication Details
                     </h2>
@@ -573,7 +573,7 @@ export default function MemberDetailsEdit() {
             {/* Certification Details */}
             {renderFormSection(
               "Certification Details",
-              <AcademicCapIcon className="w-6 h-6 text-yellow-600" />,
+              <FaGraduationCap className="w-6 h-6 text-yellow-600" />,
               member['Certification Details'],
               [
                 { key: 'reg12A', label: '12A Registration' },
@@ -597,7 +597,7 @@ export default function MemberDetailsEdit() {
             {/* Key Contact Person */}
             {renderFormSection(
               "Key Contact Person",
-              <ChatBubbleLeftRightIcon className="w-6 h-6 text-pink-600" />,
+              <FaComments className="w-6 h-6 text-pink-600" />,
               member['Key Contact Person'],
               [
                 { key: 'name', label: 'Contact Name' },
@@ -622,7 +622,7 @@ export default function MemberDetailsEdit() {
                 onClick={() => setShowEditModal(false)}
                 className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
               >
-                <XMarkIcon className="w-6 h-6" />
+                <FaTimes className="w-6 h-6" />
               </button>
             </div>
 
@@ -861,7 +861,7 @@ export default function MemberDetailsEdit() {
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full">
             <div className="p-6">
               <div className="flex items-center space-x-3 mb-4">
-                <ExclamationTriangleIcon className="w-8 h-8 text-red-500" />
+                <FaExclamationTriangle className="w-8 h-8 text-red-500" />
                 <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Delete Member</h2>
               </div>
               <p className="text-gray-600 dark:text-gray-400 mb-6">

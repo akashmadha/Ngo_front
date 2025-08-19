@@ -1,22 +1,22 @@
 import PageMeta from "../../components/common/PageMeta";
 import { 
-  UserGroupIcon, 
-  BuildingOfficeIcon,
-  DocumentCheckIcon,
-  MapPinIcon,
-  PhoneIcon,
-  UserIcon,
-  MagnifyingGlassIcon,
-  Bars3Icon,
-  XMarkIcon,
-  HomeIcon,
-  CheckCircleIcon,
-  ExclamationTriangleIcon,
-  InformationCircleIcon,
-  PencilIcon,
-  TrashIcon,
-  ChevronRightIcon
-} from '@heroicons/react/24/outline';
+  FaUsers, 
+  FaBuilding,
+  FaCheckSquare,
+  FaMapMarkerAlt,
+  FaPhone,
+  FaUser,
+  FaSearch,
+  FaBars,
+  FaTimes,
+  FaHome,
+  FaCheckCircle,
+  FaExclamationTriangle,
+  FaInfoCircle,
+  FaEdit,
+  FaTrash,
+  FaChevronRight
+} from 'react-icons/fa';
 import React, { useState, useEffect } from "react";
 
 interface Member {
@@ -49,37 +49,37 @@ const navigationItems: NavigationItem[] = [
   {
     id: 'user-registration',
     name: 'User Registration Details',
-    icon: <UserIcon className="w-5 h-5" />,
+    icon: <FaUser className="w-5 h-5" />,
     description: 'Manage user account and registration information'
   },
   {
     id: 'organization',
     name: 'Organization Details',
-    icon: <BuildingOfficeIcon className="w-5 h-5" />,
+    icon: <FaBuilding className="w-5 h-5" />,
     description: 'Organization registration and business information'
   },
   {
     id: 'certification',
     name: 'Certification Details',
-    icon: <DocumentCheckIcon className="w-5 h-5" />,
+    icon: <FaCheckSquare className="w-5 h-5" />,
     description: 'Certificates, licenses and compliance documents'
   },
   {
     id: 'address',
     name: 'Registered Office Address',
-    icon: <MapPinIcon className="w-5 h-5" />,
+    icon: <FaMapMarkerAlt className="w-5 h-5" />,
     description: 'Official registered office location details'
   },
   {
     id: 'communication',
     name: 'Communication Details',
-    icon: <PhoneIcon className="w-5 h-5" />,
+    icon: <FaPhone className="w-5 h-5" />,
     description: 'Contact information and communication preferences'
   },
   {
     id: 'contact-person',
     name: 'Key Contact Person',
-    icon: <UserGroupIcon className="w-5 h-5" />,
+    icon: <FaUsers className="w-5 h-5" />,
     description: 'Primary contact person and representative details'
   }
 ];
@@ -328,9 +328,9 @@ export default function BasicTablesWithSidebar() {
           'bg-blue-50 text-blue-800 border border-blue-200'
         }`}>
           <div className="flex items-center">
-            {notification.type === 'success' && <CheckCircleIcon className="w-5 h-5 mr-2" />}
-            {notification.type === 'error' && <ExclamationTriangleIcon className="w-5 h-5 mr-2" />}
-            {notification.type === 'info' && <InformationCircleIcon className="w-5 h-5 mr-2" />}
+            {notification.type === 'success' && <FaCheckCircle className="w-5 h-5 mr-2" />}
+            {notification.type === 'error' && <FaExclamationTriangle className="w-5 h-5 mr-2" />}
+            {notification.type === 'info' && <FaInfoCircle className="w-5 h-5 mr-2" />}
             {notification.message}
           </div>
         </div>
@@ -351,7 +351,7 @@ export default function BasicTablesWithSidebar() {
                 onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
                 className="p-2 rounded-md hover:bg-gray-100"
               >
-                <Bars3Icon className="w-5 h-5" />
+                <FaBars className="w-5 h-5" />
               </button>
             </div>
           </div>
@@ -384,17 +384,17 @@ export default function BasicTablesWithSidebar() {
             <div className="flex items-center justify-between">
               {/* Breadcrumb */}
               <div className="flex items-center space-x-2 text-sm text-gray-500">
-                <HomeIcon className="w-4 h-4" />
-                <ChevronRightIcon className="w-4 h-4" />
+                <FaHome className="w-4 h-4" />
+                <FaChevronRight className="w-4 h-4" />
                 <span>Dashboard</span>
-                <ChevronRightIcon className="w-4 h-4" />
+                <FaChevronRight className="w-4 h-4" />
                 <span className="text-gray-900 font-medium">{getActiveNavItem().name}</span>
               </div>
 
               {/* Search */}
               <div className="flex items-center space-x-4">
                 <div className="relative">
-                  <MagnifyingGlassIcon className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                  <FaSearch className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                   <input
                     type="text"
                     placeholder="Search members..."
@@ -423,7 +423,7 @@ export default function BasicTablesWithSidebar() {
                     </div>
                   ) : error ? (
                     <div className="text-center py-8">
-                      <ExclamationTriangleIcon className="w-12 h-12 text-red-400 mx-auto mb-4" />
+                      <FaExclamationTriangle className="w-12 h-12 text-red-400 mx-auto mb-4" />
                       <p className="text-red-600">{error}</p>
                       <button
                         onClick={fetchMembers}
@@ -483,7 +483,7 @@ export default function BasicTablesWithSidebar() {
                           onClick={() => setIsEditing(true)}
                           className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
                         >
-                          <PencilIcon className="w-4 h-4 mr-2" />
+                          <FaEdit className="w-4 h-4 mr-2" />
                           Edit
                         </button>
                       ) : (
@@ -506,7 +506,7 @@ export default function BasicTablesWithSidebar() {
                         onClick={() => handleDelete(selectedMember.id)}
                         className="flex items-center px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700"
                       >
-                        <TrashIcon className="w-4 h-4 mr-2" />
+                        <FaTrash className="w-4 h-4 mr-2" />
                         Delete
                       </button>
                     </div>

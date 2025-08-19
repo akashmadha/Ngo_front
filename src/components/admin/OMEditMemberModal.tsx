@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { XMarkIcon, CheckIcon } from '@heroicons/react/24/outline';
+import { FaTimes, FaCheck } from 'react-icons/fa';
 
 interface Member {
   id: number;
@@ -85,7 +85,7 @@ export default function OMEditMemberModal({ member, isOpen, onClose, onSave }: O
             onClick={onClose}
             className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
           >
-            <XMarkIcon className="w-6 h-6" />
+            <FaTimes className="w-6 h-6" />
           </button>
         </div>
 
@@ -182,7 +182,7 @@ export default function OMEditMemberModal({ member, isOpen, onClose, onSave }: O
                 </>
               ) : (
                 <>
-                  <CheckIcon className="w-4 h-4" />
+                  <FaCheck className="w-4 h-4" />
                   <span>Save Changes</span>
                 </>
               )}

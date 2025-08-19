@@ -1,5 +1,5 @@
 import React from 'react';
-import { XMarkIcon } from '@heroicons/react/24/outline';
+import { FaTimes } from 'react-icons/fa';
 
 interface Member {
   id: number;
@@ -77,7 +77,7 @@ export default function OMMemberDetailsModal({ member, isOpen, onClose }: OMMemb
             onClick={onClose}
             className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
           >
-            <XMarkIcon className="w-6 h-6" />
+            <FaTimes className="w-6 h-6" />
           </button>
         </div>
 
