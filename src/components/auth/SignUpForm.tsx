@@ -87,7 +87,7 @@ export default function SignUpForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     let valid = true;
-    let newErrors = {
+    const newErrors = {
       panNo: "",
       password: "",
       confirmPassword: "",
