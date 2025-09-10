@@ -109,6 +109,18 @@ export default function SignInForm({ userType = "member" }: SignInFormProps) {
     }
     setLoading(true);
     try {
+      // Hardcoded dummy admin login (bypass backend)
+      if (username === "admin" && password === "admin123") {
+        localStorage.setItem("userId", "admin-demo");
+        localStorage.setItem("userType", "admin");
+        setToast("Login successful!");
+        setToastType("success");
+        setTimeout(() => {
+          navigate("/admin-dashboard");
+        }, 500);
+        return;
+      }
+
       const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
